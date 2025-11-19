@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Luxe</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="layout">
+
+    <!-- NAVBAR -->
+    <nav class="navbar glass-nav">
+        <div class="logo">Salon Luxe</div>
+
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'booking' %}">Booking</a></li>
+
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" class="logout-btn">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}" class="login-btn">Login</a></li>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'my_bookings' %}">My Bookings</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+
+    <!-- FLASH MESSAGES -->
+    {% if messages %}
+        <div class="messages">
+            {% for msg in messages %}
+                <p class="message">{{ msg }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- CONTENT -->
+    <div class="main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Salon Luxe — Designed for a Premium Salon Experience</p>
+    </footer>
+
+</body>
+</html>
