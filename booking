@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if not request.user.is_authenticated %}
+<script>
+    window.location.href = "{% url 'login' %}";
+</script>
+{% endif %}
+
+<div class="booking-wrapper">
+
+    <h2 class="booking-title">Book Your Appointment</h2>
+
+    <div class="booking-card">
+
+        <form method="POST" action="">
+            {% csrf_token %}
+
+            <div class="input-group">
+    <label>Your Name</label>
+    <input type="text" name="name" placeholder="Enter your name" required>
+</div>
+
+<div class="input-group">
+    <label>Phone Number</label>
+    <input type="text" name="phone" placeholder="Enter phone number" required>
+</div>
+
+<div class="input-row">
+
+    <div class="input-group">
+        <label>Select Date</label>
+        <input type="date" name="date" required>
+    </div>
+
+    <div class="input-group">
+        <label>Select Time</label>
+        <input type="time" name="time" required>
+    </div>
+
+</div>
+
+<div class="input-group">
+    <label>Select Service</label>
+    <select name="service" required>
+        <option value="" disabled selected>Select a service</option>
+        <option value="Haircut">Haircut</option>
+        <option value="Facial">Facial</option>
+        <option value="Spa">Spa</option>
+    </select>
+</div>
+   
+
+            <!-- STAFF SELECTION -->
+            <h3 class="staff-title">Choose Your Stylist</h3>
+
+            <div class="staff-grid">
+
+                {% for s in staff_list %}
+                <label class="staff-card">
+
+                    <input type="radio" name="staff" value="{{ s.id }}" required>
+
+                    <div class="staff-info">
+                        <h4>{{ s.name }}</h4>
+                        <p>{{ s.speciality }}</p>
+                    </div>
+
+                </label>
+                {% endfor %}
+
+            </div>
+
+            <button type="submit" class="confirm-btn">Confirm Booking</button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
