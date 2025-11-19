@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Luxe - Services</title>
+
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; background: #fafafa; }
+        .navbar { padding: 18px 40px; background: #222; color: #fff; display: flex; justify-content: space-between; }
+        .navbar .logo { font-size: 22px; font-weight: bold; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 16px; }
+        .nav-links .active { color: #f4b400; }
+
+        .services { padding: 60px 40px; }
+        .services h2 { text-align: center; margin-bottom: 30px; font-size: 32px; }
+
+        .service-box {
+            background: #fff;
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .service-box h3 { margin: 0; }
+        .price { color: #f4b400; font-weight: bold; }
+
+        footer { text-align: center; padding: 20px 0; background: #222; color: #fff; margin-top: 40px; }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">Salon Luxe</div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services" class="active">Services</a></li>
+        <li><a href="/booking">Booking</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="services">
+    <h2>Our Services</h2>
+
+    <div class="service-box">
+        <h3>Haircut & Styling</h3>
+        <p>Professional haircuts with premium styling.</p>
+        <span class="price">$25 - $60</span>
+    </div>
+
+    <div class="service-box">
+        <h3>Facial & Skin Care</h3>
+        <p>Deep cleansing, glow facial, and more.</p>
+        <span class="price">$40 - $120</span>
+    </div>
+
+    <div class="service-box">
+        <h3>Manicure & Pedicure</h3>
+        <p>Relaxing nail spa with beauty treatment.</p>
+        <span class="price">$15 - $45</span>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Salon Luxe. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
